@@ -1,5 +1,6 @@
 package com.heberbaraybar.servicio;
 
+import com.heberbaraybar.modelo.Ropa;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -20,78 +21,79 @@ public class GestorRopa {
                 case 1 -> altaProducto(sc, productos);
                 case 2 -> buscarProducto(sc, productos);
                 case 3 -> mostrarCatalogoProductos(productos);
-                case 4 -> System.out.println("Volviendo el menú principal");
-
+                case 4 -> System.out.println("Volviendo al menú principal");
             }
 
-        }
-        while (opcion !=4);
+        } while (opcion != 4);
     }
+
     public static void altaProducto(Scanner sc, ArrayList<Ropa> productos){
         System.out.println("Ingrese el nombre del producto: ");
         String producto = sc.nextLine();
 
         System.out.println("Ingrese la referencia: ");
-        int referencia = sc.nextInt();sc.nextLine();
+        int referencia = sc.nextInt(); sc.nextLine();
 
         System.out.println("Ingrese el color: ");
         String color = sc.nextLine();
 
         System.out.println("Ingrese la talla: ");
-        String  talla = sc.nextLine();
+        String talla = sc.nextLine();
 
         System.out.println("Ingrese el precio: ");
         String precioStr = sc.nextLine().replace(",", ".");
         double precio = Double.parseDouble(precioStr);
 
-
-        System.out.println("Producto dado de alta correctamente");
-
         Ropa nuevoProducto = new Ropa(producto, referencia, color, talla, precio);
         productos.add(nuevoProducto);
-
+        System.out.println("Producto dado de alta correctamente");
     }
+
     public static void mostrarCatalogoProductos(ArrayList<Ropa> productos) {
         if (productos.isEmpty()) {
             System.out.println("No hay productos en el catálogo");
         } else {
-            System.out.println("Los productos disponbles son: ");
+            System.out.println("Los productos disponibles son:");
             for (int i = 0; i < productos.size(); i++) {
                 Ropa prod = productos.get(i);
-                System.out.println((i + 1) + " Producto: " + prod.getProducto() + "\nReferencia: " + prod.getReferencia() + "\nColor: " + prod.getColor() + "\nTalla: " + prod.getTalla() + "P\nrecio: " + prod.getPrecio());
+                System.out.println((i + 1) + " Producto: " + prod.getProducto() +
+                        "\nReferencia: " + prod.getReferencia() +
+                        "\nColor: " + prod.getColor() +
+                        "\nTalla: " + prod.getTalla() +
+                        "\nPrecio: " + prod.getPrecio());
             }
         }
     }
-    public static void buscarProducto(Scanner sc, ArrayList<Ropa> productos){
 
+    public static void buscarProducto(Scanner sc, ArrayList<Ropa> productos){
         boolean productoEncontrado = false;
         int intentos = 0;
 
         while (!productoEncontrado && intentos < 3){
-            System.out.println("Ingrese nro de referencia del producto");
-            int productoBuscado = sc.nextInt();sc.nextLine();
+            System.out.println("Ingrese número de referencia del producto:");
+            int productoBuscado = sc.nextInt(); sc.nextLine();
 
-            for (int i = 0; i < productos.size();i++){
-                Ropa item = productos.get(i);
+            for (Ropa item : productos){
                 if(productoBuscado == item.getReferencia()){
-                    System.out.println("El producto es: " + item.getProducto() + "\nColor: " + item.getColor() + "\nTalla: " + item.getTalla());
+                    System.out.println("El producto es: " + item.getProducto() +
+                            "\nColor: " + item.getColor() +
+                            "\nTalla: " + item.getTalla() +
+                            "\nPrecio: " + item.getPrecio());
                     productoEncontrado = true;
                     break;
                 }
-
             }
+
             if(!productoEncontrado){
                 intentos++;
                 if(intentos < 3){
-                    System.out.println("Intenta con otra referencia");
+                    System.out.println("Referencia no encontrada, intenta otra.");
                 }
             }
         }
+
         if(!productoEncontrado){
-            System.out.println("Intentos superados");
+            System.out.println("Intentos superados, producto no encontrado.");
         }
-
     }
-
-
 }
