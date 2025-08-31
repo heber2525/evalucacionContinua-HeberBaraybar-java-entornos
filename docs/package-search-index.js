@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.heberbaraybar.app"},{"l":"com.heberbaraybar.modelo"},{"l":"com.heberbaraybar.servicio"}];updateSearchResults();
