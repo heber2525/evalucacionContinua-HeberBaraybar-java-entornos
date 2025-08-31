@@ -7,8 +7,21 @@ import com.heberbaraybar.modelo.Venta;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Clase que gestiona las operaciones de ventas, incluyendo realizar ventas
+ * y mostrar ventas registradas.
+ * @author Heber
+ * @version 1.5
+ */
 public class GestorVentas {
 
+    /**
+     * Muestra el menú de gestión de ventas y ejecuta la opción seleccionada.
+     * @param sc Scanner para leer la entrada del usuario
+     * @param clientes lista de clientes
+     * @param productos lista de productos
+     * @param ventas lista de ventas realizadas
+     */
     public static void gestionarVenta(Scanner sc, ArrayList<Cliente> clientes, ArrayList<Ropa> productos, ArrayList<Venta> ventas){
 
         int opcion;
@@ -34,6 +47,13 @@ public class GestorVentas {
 
     }
 
+    /**
+     * Permite realizar una venta seleccionando un cliente y uno o más productos.
+     * @param sc Scanner para leer la entrada del usuario
+     * @param clientes lista de clientes
+     * @param productos lista de productos disponibles
+     * @param ventas lista de ventas donde se agregará la nueva venta
+     */
     public static void realizarVenta(Scanner sc, ArrayList<Cliente> clientes, ArrayList<Ropa> productos, ArrayList<Venta> ventas){
         if(clientes.isEmpty()){
             System.out.println("No hay clientes dados de alta");

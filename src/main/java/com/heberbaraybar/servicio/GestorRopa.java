@@ -4,8 +4,19 @@ import com.heberbaraybar.modelo.Ropa;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Clase que gestiona las operaciones relacionadas con los productos de ropa,
+ * como alta, búsqueda y listado de productos.
+ * @author Heber
+ * @version 1.4
+ */
 public class GestorRopa {
 
+    /**
+     * Muestra el menú de gestión de productos y ejecuta la opción seleccionada.
+     * @param sc Scanner para leer la entrada del usuario
+     * @param productos lista de productos
+     */
     public static void gestionarRopa(Scanner sc, ArrayList<Ropa> productos){
         int opcion;
         do {
@@ -27,6 +38,11 @@ public class GestorRopa {
         } while (opcion != 4);
     }
 
+    /**
+     * Permite dar de alta un nuevo producto y agregarlo a la lista.
+     * @param sc Scanner para leer la entrada del usuario
+     * @param productos lista de productos
+     */
     public static void altaProducto(Scanner sc, ArrayList<Ropa> productos){
         System.out.println("Ingrese el nombre del producto: ");
         String producto = sc.nextLine();
@@ -49,6 +65,10 @@ public class GestorRopa {
         System.out.println("Producto dado de alta correctamente");
     }
 
+    /**
+     * Muestra todos los productos disponibles en el catálogo.
+     * @param productos lista de productos
+     */
     public static void mostrarCatalogoProductos(ArrayList<Ropa> productos) {
         if (productos.isEmpty()) {
             System.out.println("No hay productos en el catálogo");
@@ -65,6 +85,11 @@ public class GestorRopa {
         }
     }
 
+    /**
+     * Permite buscar un producto por su número de referencia.
+     * @param sc Scanner para leer la entrada del usuario
+     * @param productos lista de productos
+     */
     public static void buscarProducto(Scanner sc, ArrayList<Ropa> productos){
         boolean productoEncontrado = false;
         int intentos = 0;

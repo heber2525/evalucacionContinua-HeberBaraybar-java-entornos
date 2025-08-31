@@ -4,8 +4,19 @@ import com.heberbaraybar.modelo.Cliente;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Clase para gestionar clientes en la aplicación.
+ * Permite dar de alta, modificar, eliminar, mostrar y buscar clientes.
+ * @author Heber
+ * @version 1.6
+ */
 public class GestorClientes {
 
+    /**
+     * Muestra el menú de gestión de clientes y permite elegir una opción.
+     * @param sc Scanner para leer la entrada del usuario
+     * @param clientes Lista de clientes existentes
+     */
     public static void gestionarClientes(Scanner sc, ArrayList<Cliente> clientes){
         int opcion;
         do {
@@ -32,6 +43,11 @@ public class GestorClientes {
         } while (opcion != 6);
     }
 
+    /**
+     * Da de alta un nuevo cliente pidiendo sus datos al usuario.
+     * @param sc Scanner para leer la entrada del usuario
+     * @param clientes Lista de clientes donde se agregará el nuevo cliente
+     */
     public static void altaCliente(Scanner sc, ArrayList<Cliente> clientes){
         System.out.println("Ingrese el nombre: ");
         String nombre = sc.nextLine();
@@ -53,6 +69,10 @@ public class GestorClientes {
         System.out.println("Cliente agregado correctamente.");
     }
 
+    /**
+     * Muestra todos los clientes existentes.
+     * @param clientes Lista de clientes a mostrar
+     */
     public static void mostrarClientes(ArrayList<Cliente> clientes){
         if (clientes.isEmpty()){
             System.out.println("No hay clientes dados de alta");
@@ -70,6 +90,11 @@ public class GestorClientes {
         }
     }
 
+    /**
+     * Modifica los datos de un cliente existente.
+     * @param sc Scanner para leer la entrada del usuario
+     * @param clientes Lista de clientes donde se buscará el cliente a modificar
+     */
     public static void modificarCliente(Scanner sc, ArrayList<Cliente> clientes){
         if(clientes.isEmpty()){
             System.out.println("No hay clientes a modificar");
@@ -127,6 +152,11 @@ public class GestorClientes {
         System.out.println("¡Cambios modificados correctamente!");
     }
 
+    /**
+     * Elimina un cliente de la lista.
+     * @param sc Scanner para leer la entrada del usuario
+     * @param clientes Lista de clientes donde se eliminará el cliente
+     */
     public static void eliminarCliente(Scanner sc, ArrayList<Cliente> clientes){
         if (clientes.isEmpty()){
             System.out.println("No hay clientes para borrar");
@@ -145,6 +175,11 @@ public class GestorClientes {
         }
     }
 
+    /**
+     * Busca un cliente por su DNI.
+     * @param sc Scanner para leer la entrada del usuario
+     * @param clientes Lista de clientes donde se realizará la búsqueda
+     */
     public static void buscarCliente(Scanner sc, ArrayList<Cliente> clientes){
         if(clientes.isEmpty()){
             System.out.println("No hay clientes de alta");
